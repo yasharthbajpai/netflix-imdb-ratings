@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Ratings for Netflix — Options</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>Ratings for Netflix</h1>
+
+    <section class="card">
+      <h2>Display</h2>
+      <label class="row">
+        <input type="checkbox" id="enabled" />
+        Enable ratings on Netflix
+      </label>
+      <label class="row">
+        <input type="checkbox" id="colorCode" />
+        Color-code the badge by score
+      </label>
+      <label class="row">
+        <input type="checkbox" id="badgeOnTiles" />
+        Also show a small badge directly on tiles (not just on hover)
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Dim low-rated tiles</h2>
+      <label>
+        Dim titles rated below <span id="dimBelowVal"></span>
+        <input type="range" id="dimBelow" min="0" max="10" step="0.1" />
+      </label>
+      <label>
+        Dim opacity <span id="dimOpacityVal"></span>
+        <input type="range" id="dimOpacity" min="0.1" max="1" step="0.05" />
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Ratings index</h2>
+      <p id="index-summary">Loading…</p>
+      <button id="rebuild-btn" type="button">Rebuild index</button>
+    </section>
+
+    <footer>
+      Not affiliated with, endorsed by, or sponsored by Netflix or IMDb.<br />
+      Ratings information courtesy of IMDb (<a href="https://www.imdb.com" target="_blank" rel="noopener">imdb.com</a>).
+    </footer>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

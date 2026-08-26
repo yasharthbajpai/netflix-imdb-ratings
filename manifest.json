@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Ratings for Netflix",
+  "short_name": "Ratings for Netflix",
+  "description": "Shows IMDb-sourced ratings on Netflix tiles, built from a dataset link you provide. Not affiliated with Netflix or IMDb.",
+  "version": "0.1.0",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": ["storage", "unlimitedStorage"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "js": [
+        "src/content/netflix-dom.js",
+        "src/content/badge.js",
+        "src/content/content.js"
+      ],
+      "css": ["src/content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "src/options/options.html",
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  }
+}

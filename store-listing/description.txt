@@ -1,0 +1,19 @@
+Ratings for Netflix
+
+See IMDb-sourced ratings right on Netflix's title preview card — no more tabbing away to look
+something up before you press play.
+
+HOW IT WORKS
+On first use, you point this extension at IMDb's official public dataset files (the links are
+pre-filled for you). It downloads them directly into your own browser, builds a local ratings index,
+and never sends your data anywhere. After that first setup, ratings appear instantly while you browse
+— no network requests, no accounts, no tracking.
+
+FEATURES
+- IMDb rating + vote count shown on the hover preview card
+- Optional color-coding by score (green / amber / red)
+- Optional dimming of tiles rated below a threshold you choose
+- Everything runs locally; nothing about your Netflix browsing is collected or transmitted
+
+Not affiliated with, endorsed by, or sponsored by Netflix or IMDb.
+Ratings information courtesy of IMDb (imdb.com).

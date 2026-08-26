@@ -1,0 +1,65 @@
+.nrx-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: auto;
+}
+
+.nrx-badge small {
+  font-weight: 400;
+  opacity: 0.8;
+  font-size: 11px;
+}
+
+.nrx-tile-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 998;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(20, 20, 20, 0.85);
+  pointer-events: none;
+}
+
+.nrx-tier-good {
+  color: #46d369;
+}
+
+.nrx-tier-mid {
+  color: #f2c94c;
+}
+
+.nrx-tier-low {
+  color: #ff5c5c;
+}
+
+.nrx-tier-unknown,
+.nrx-tier-neutral {
+  color: #cccccc;
+}
+
+.nrx-dim {
+  opacity: var(--nrx-dim-opacity, 0.35);
+  transition: opacity 0.2s ease;
+}
+
+.nrx-dim:hover {
+  opacity: 1;
+}

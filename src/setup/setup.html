@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Ratings for Netflix — Setup</title>
+  <link rel="stylesheet" href="setup.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>Ratings for Netflix</h1>
+    <p class="disclaimer">Not affiliated with, endorsed by, or sponsored by Netflix or IMDb.</p>
+
+    <section id="status-view" class="card" hidden>
+      <h2>Index ready</h2>
+      <p id="status-summary"></p>
+      <button id="rebuild-btn" type="button">Rebuild index</button>
+    </section>
+
+    <section id="form-view" class="card">
+      <h2>Build the ratings index</h2>
+      <p>
+        This downloads two files directly from the links below into your browser, joins them, and
+        stores the result locally. Nothing is uploaded anywhere.
+      </p>
+      <label>
+        Ratings dataset URL
+        <input id="ratings-url" type="url" value="https://datasets.imdbws.com/title.ratings.tsv.gz" />
+      </label>
+      <label>
+        Titles dataset URL
+        <input id="titles-url" type="url" value="https://datasets.imdbws.com/title.basics.tsv.gz" />
+      </label>
+      <button id="build-btn" type="button">Build index</button>
+      <p class="hint">
+        Official IMDb dataset files: <a href="https://datasets.imdbws.com/" target="_blank" rel="noopener">datasets.imdbws.com</a>.
+        Courtesy of IMDb. Titles dataset is ~226&nbsp;MB; this can take a few minutes depending on
+        your connection.
+      </p>
+    </section>
+
+    <section id="progress-view" class="card" hidden>
+      <h2 id="progress-phase">Working…</h2>
+      <progress id="progress-bar" max="100" value="0"></progress>
+      <p id="progress-detail"></p>
+    </section>
+
+    <section id="error-view" class="card error" hidden>
+      <h2>Something went wrong</h2>
+      <p id="error-detail"></p>
+      <button id="retry-btn" type="button">Back</button>
+    </section>
+
+    <footer>
+      Ratings information courtesy of IMDb (<a href="https://www.imdb.com" target="_blank" rel="noopener">imdb.com</a>). Used under IMDb's non-commercial dataset terms.
+    </footer>
+  </main>
+  <script type="module" src="setup.js"></script>
+</body>
+</html>
