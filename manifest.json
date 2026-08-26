@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Ratings for Netflix",
   "short_name": "Ratings for Netflix",
-  "description": "Shows IMDb-sourced ratings on Netflix and Hotstar tiles, built from a dataset link you provide. Not affiliated with Netflix, Hotstar, or IMDb.",
+  "description": "Shows IMDb ratings on Netflix and Hotstar tiles from a dataset link you provide. Not affiliated with Netflix, Hotstar, or IMDb.",
   "version": "0.1.0",
   "icons": {
     "16": "icons/16.png",

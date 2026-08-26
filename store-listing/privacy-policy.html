@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Privacy Policy — Ratings for Netflix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #222;
+      line-height: 1.6;
+    }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; margin-top: 32px; }
+    footer { margin-top: 48px; font-size: 13px; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy — Ratings for Netflix</h1>
+  <p><em>Last updated: 2026-08-26</em></p>
+
+  <h2>Summary</h2>
+  <p>
+    This extension does not collect, store, or transmit any personal data, browsing history, or
+    analytics to the developer or to any third party. There is no server. Everything the extension
+    does happens locally, inside your own browser.
+  </p>
+
+  <h2>What data is processed, and where it stays</h2>
+  <ul>
+    <li>
+      <strong>IMDb dataset files.</strong> On setup, you provide links to IMDb's public dataset
+      files. Your browser downloads them directly from the host you specify and builds a local
+      ratings index stored in your browser's IndexedDB. This data never leaves your device and is
+      never sent to the developer.
+    </li>
+    <li>
+      <strong>Titles you browse.</strong> While you browse Netflix or Hotstar, the extension reads
+      title names shown on the page (from the page itself, not from any external source) to look up
+      a rating in your local index. This lookup is a local database read — no network request is
+      made, and no browsing activity is transmitted anywhere.
+    </li>
+    <li>
+      <strong>Settings.</strong> Your display preferences (color-coding, dimming threshold, etc.)
+      are stored using Chrome's built-in sync storage, which is scoped to your own Google account
+      and is never accessible to the developer.
+    </li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li>
+      <strong>storage / unlimitedStorage:</strong> used only to cache the downloaded ratings index
+      and your settings locally in the browser.
+    </li>
+    <li>
+      <strong>optional host permission (requested at runtime):</strong> requested only for the exact
+      host you type into the setup page, only at the moment you click "Build index," and only to
+      download IMDb's static dataset file. It is never used to track browsing activity, and is never
+      requested automatically or in the background.
+    </li>
+  </ul>
+
+  <h2>Third parties</h2>
+  <p>
+    No data is shared with any third party. The only network requests this extension ever makes are
+    the ones you explicitly trigger by clicking "Build index," to the host you provide.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be raised via the project's GitHub repository issue tracker.</p>
+
+  <footer>
+    Not affiliated with, endorsed by, or sponsored by Netflix, Hotstar, or IMDb.<br />
+    Ratings information courtesy of IMDb (imdb.com).
+  </footer>
+</body>
+</html>
