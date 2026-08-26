@@ -1,9 +1,9 @@
 # Ratings for Netflix
 
-Shows IMDb-sourced ratings on Netflix's hover preview card, with optional color-coding and dimming
-of low-rated titles.
+Shows IMDb-sourced ratings on Netflix's hover preview card and on Hotstar tiles, with optional
+color-coding and dimming of low-rated titles.
 
-**Not affiliated with, endorsed by, or sponsored by Netflix or IMDb.**
+**Not affiliated with, endorsed by, or sponsored by Netflix, Hotstar, or IMDb.**
 
 ## How it works
 

@@ -72,10 +72,14 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
     if (stopped) return;
     if (!contextAlive()) return teardown();
     if (area !== "sync") return;
+    const wasEnabled = settings.enabled;
     for (const [k, change] of Object.entries(changes)) {
       // A cleared key has no newValue; fall back to the default rather than storing undefined.
       settings[k] = change?.newValue ?? DEFAULT_SETTINGS[k];
     }
+    if (!wasEnabled && !settings.enabled) return;
+    if (wasEnabled && !settings.enabled) return disableAll();
+    if (!wasEnabled && settings.enabled) return enableAll();
     reapplyAll();
   });
 
@@ -153,6 +157,7 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
   }
 
   function processTile(tile) {
+    if (!settings.enabled) return;
     if (tile.hasAttribute("data-nrx-seen")) return;
     const identity = NRX.dom.extractTitle(tile);
     if (!identity.title) {
@@ -179,6 +184,7 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
   }
 
   function processHoverCard(card) {
+    if (!settings.enabled) return;
     if (card.hasAttribute("data-nrx-done")) return;
     const identity = NRX.dom.extractTitle(card);
     if (!identity.title) {
@@ -204,6 +210,31 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
         NRX.badge.renderTileBadge(tile, result, settings);
       }
     }
+  }
+
+  // Strip every visible trace so toggling off reads as "off", not just "no new ones". Clearing
+  // data-nrx-done lets a still-open hover card re-render its badge the moment it's re-enabled.
+  function disableAll() {
+    for (const badge of document.querySelectorAll(".nrx-badge, .nrx-tile-badge")) {
+      badge.remove();
+    }
+    for (const dimmed of document.querySelectorAll(".nrx-dim")) {
+      dimmed.classList.remove("nrx-dim");
+    }
+    for (const card of document.querySelectorAll("[data-nrx-done]")) {
+      card.removeAttribute("data-nrx-done");
+    }
+  }
+
+  // Tiles that became visible while disabled were skipped without being marked seen, so an
+  // IntersectionObserver re-fire can't be relied on — walk everything currently in the DOM instead.
+  function enableAll() {
+    reapplyAll();
+    for (const tile of NRX.dom.findTiles(document)) {
+      if (!tile.hasAttribute("data-nrx-seen")) processTile(tile);
+    }
+    const card = NRX.dom.findHoverCard(document.body);
+    if (card) processHoverCard(card);
   }
 
   const intersectionObserver = new IntersectionObserver(
