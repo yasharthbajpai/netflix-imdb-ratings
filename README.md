@@ -42,8 +42,9 @@ Options page (right-click the toolbar icon → Options, or via the popup):
 
 - **Enable ratings on Netflix** — master on/off switch
 - **Color-code the badge by score** — green ≥7.5, amber 6.0–7.4, red <6.0
-- **Also show a small badge directly on tiles** — off by default; the badge normally only appears on
-  the hover preview card
+- **Also show a small badge directly on tiles** — on by default. Hotstar has no usable hover preview
+  card, so the on-tile badge is the only surface there; turn it off if you only want ratings on
+  Netflix's hover card
 - **Dim titles rated below _N_** — fades matching tiles in browse rows (titles with no rating found
   are never dimmed)
 - **Rebuild index** — reopens the setup page

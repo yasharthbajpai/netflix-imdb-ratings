@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Ratings for Netflix",
   "short_name": "Ratings for Netflix",
-  "description": "Shows IMDb-sourced ratings on Netflix tiles, built from a dataset link you provide. Not affiliated with Netflix or IMDb.",
+  "description": "Shows IMDb-sourced ratings on Netflix and Hotstar tiles, built from a dataset link you provide. Not affiliated with Netflix, Hotstar, or IMDb.",
   "version": "0.1.0",
   "icons": {
     "16": "icons/16.png",
@@ -20,6 +20,19 @@
       "matches": ["https://www.netflix.com/*"],
       "js": [
         "src/content/netflix-dom.js",
+        "src/content/badge.js",
+        "src/content/content.js"
+      ],
+      "css": ["src/content/content.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.hotstar.com/*",
+        "https://www.jiohotstar.com/*"
+      ],
+      "js": [
+        "src/content/hotstar-dom.js",
         "src/content/badge.js",
         "src/content/content.js"
       ],

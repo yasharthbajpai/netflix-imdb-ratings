@@ -2,7 +2,9 @@ export const DEFAULT_SETTINGS = {
   dimBelow: 6.5,
   dimOpacity: 0.35,
   colorCode: true,
-  badgeOnTiles: false,
+  // On by default: sites without a usable hover-preview card (Hotstar) have nowhere else to put a
+  // rating, so an opt-in tile badge meant those sites showed nothing at all out of the box.
+  badgeOnTiles: true,
   enabled: true,
 };
 

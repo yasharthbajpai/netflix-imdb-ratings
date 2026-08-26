@@ -34,17 +34,22 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
 
   function renderTileBadge(tileEl, result, settings) {
     if (!settings.badgeOnTiles || !tileEl || tileEl.querySelector(".nrx-tile-badge")) return;
+    // Unlike the hover card — which the user opened deliberately and where "no match" is useful
+    // information — the tile badge is always-on across a whole page. Peppering every unmatched
+    // tile (trailers, sports, local titles below the vote threshold) with a placeholder is noise,
+    // so misses simply render nothing.
+    if (!result?.found) return;
     const badge = document.createElement("span");
     badge.className = "nrx-tile-badge";
-    if (result?.found) {
-      const tier = settings.colorCode ? tierFor(result.rating) : "neutral";
-      badge.classList.add(`nrx-tier-${tier}`);
-      badge.textContent = result.rating.toFixed(1);
-    } else {
-      badge.classList.add("nrx-tier-unknown");
-      badge.textContent = "–";
+    const tier = settings.colorCode ? tierFor(result.rating) : "neutral";
+    badge.classList.add(`nrx-tier-${tier}`);
+    badge.textContent = result.rating.toFixed(1);
+    // The badge is absolutely positioned, so the tile has to be a containing block. Check the
+    // computed value rather than the inline one, so a tile the site already positions via a
+    // stylesheet isn't clobbered.
+    if (getComputedStyle(tileEl).position === "static") {
+      tileEl.style.position = "relative";
     }
-    tileEl.style.position = tileEl.style.position || "relative";
     tileEl.appendChild(badge);
   }
 

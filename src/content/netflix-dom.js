@@ -49,7 +49,7 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
   }
 
   function extractTitle(el) {
-    if (!(el instanceof Element)) return { title: null, year: null, netflixId: null };
+    if (!(el instanceof Element)) return { title: null, year: null, id: null };
 
     const img = el.querySelector?.('img[alt]');
     const imgAlt = cleanText(img?.getAttribute('alt'));
@@ -70,7 +70,7 @@ var NRX = globalThis.NRX || (globalThis.NRX = {});
     return {
       title: title || null,
       year: extractYear(el),
-      netflixId: extractNetflixId(el),
+      id: extractNetflixId(el),
     };
   }
 
