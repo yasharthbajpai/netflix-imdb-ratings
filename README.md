@@ -5,6 +5,15 @@ color-coding and dimming of low-rated titles.
 
 **Not affiliated with, endorsed by, or sponsored by Netflix, Hotstar, or IMDb.**
 
+📦 **[Available on the Chrome Web Store](https://chromewebstore.google.com/detail/ratings-for-netflix/mkjdaopppcindamkonflobenpbdbjigp)**
+— install it there instead of loading unpacked, unless you're developing on this repo.
+
+## Screenshots
+
+| Netflix | Hotstar |
+| --- | --- |
+| ![IMDb ratings shown on Netflix tiles](store-listing/screenshot-netflix.png) | ![IMDb ratings shown on Hotstar tiles](store-listing/screenshot-hotstar.png) |
+
 ## How it works
 
 There is no server, no API key, and no bundled data. On first install (or whenever you click
@@ -29,7 +38,7 @@ You can also point the fields at any mirror you trust instead of the official li
 Once the index is built, browsing Netflix makes **zero network requests** for ratings — every lookup
 is a local IndexedDB read.
 
-## Load the extension (unpacked)
+## Load the extension (unpacked, for development)
 
 1. `chrome://extensions`
 2. Enable Developer mode (top right)
